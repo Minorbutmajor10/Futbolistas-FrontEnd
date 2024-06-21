@@ -10,10 +10,9 @@ const ListFutbolistasComponent = () => {
         fetch('http://localhost:8090/futbolistas/')
             .then(response => response.json())
             .then(data => {
-                console.log('Fetched data:', data);
                 setFutbolistas(data);
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => console.error('Error:', error));
     }, []);
 
     const handleShowModal = (id) => {
@@ -24,10 +23,10 @@ const ListFutbolistasComponent = () => {
                     setSelectedFutbolista(data[0]);
                     setShowModal(true);
                 } else {
-                    console.error('No data found for the given ID');
+                    console.error('No data');
                 }
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => console.error('Error', error));
     };
 
    
